@@ -2,9 +2,11 @@ import { CollectionConfig } from "payload/types";
 import { RowLabelArgs } from "payload/dist/admin/components/forms/RowLabel/types";
 const Users: CollectionConfig = {
   slug: "users",
-  auth: true,
   admin: {
     useAsTitle: "email",
+  },
+  auth : {
+    useAPIKey: true
   },
   fields: [
     // Email added by default

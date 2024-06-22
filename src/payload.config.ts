@@ -8,6 +8,7 @@ import { buildConfig } from "payload/config";
 
 import Users from "./collections/Users";
 import Properties from "./collections/Properties";
+import PropertyImages from "./collections/PropertyImages";
 import CustomNav from "./views/CustomNav.jsx";
 import CustomUsersView from "./views/CustomUsersView.jsx";
 import CustomView from "./views/CustomView.jsx";
@@ -19,8 +20,9 @@ export default buildConfig({
     user: Users.slug,
     bundler: webpackBundler(),
   },
+  cors: "*",
   editor: slateEditor({}),
-  collections: [Users, Properties],
+  collections: [Users, Properties, PropertyImages],
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

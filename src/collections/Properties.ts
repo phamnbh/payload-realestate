@@ -1,18 +1,63 @@
-import { buildConfig } from "payload/config";
 import { CollectionConfig } from "payload/types";
-import CustomEditView from "../views/CustomEditView.jsx";
 
 const Properties: CollectionConfig = {
   slug: "properties",
   fields: [
     {
-      name: "Property",
-      type: "group",
+      type: "row",
       fields: [
         {
-          name: "name",
-          type: "text",
-          required: true,
+          type: "group",
+          name: "property",
+          fields: [
+            {
+              type: "text",
+              name: "name",
+            },
+            {
+              name: "type",
+              type: "text",
+              required: true,
+            },
+            {
+              name: "sqft",
+              type: "number",
+              required: true,
+            },
+            {
+              name: "price",
+              type: "number",
+              required: true,
+            },
+            {
+              type: "row",
+              fields: [
+                {
+                  type: "number",
+                  name: "beds",
+                },
+                {
+                  type: "number",
+                  name: "bathrooms",
+                },
+              ],
+            },
+          ],
+        },
+        {
+          name: "contact",
+          type: "group",
+          fields: [
+            {
+              name: "phone",
+              type: "text",
+              required: true,
+            },
+            // {
+            //   name: "email",
+            //   type: "email",
+            // },
+          ],
         },
       ],
     },
@@ -43,39 +88,12 @@ const Properties: CollectionConfig = {
       ],
     },
     {
-      name: "type",
-      type: "text",
-      required: true,
-    },
-    {
-      name: "units",
-      type: "number",
-      required: true,
-    },
-    {
       name: "amenities",
       type: "array",
       fields: [
         {
           name: "amenity",
           type: "text",
-          required: true,
-        },
-      ],
-    },
-    {
-      name: "contact",
-      type: "group",
-      fields: [
-        {
-          name: "phone",
-          type: "text",
-          required: true,
-        },
-        {
-          name: "email",
-          type: "text",
-          required: true,
         },
       ],
     },
@@ -84,9 +102,9 @@ const Properties: CollectionConfig = {
       type: "array",
       fields: [
         {
-          name: "image",
-          type: "text",
-          required: true,
+          name: "propertyImage", // required
+          type: "upload", // required
+          relationTo: "property-images", // required
         },
       ],
     },
