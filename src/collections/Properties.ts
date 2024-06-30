@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import { useState } from "react";
 
 const Properties: CollectionConfig = {
   slug: "properties",
@@ -109,46 +110,10 @@ const Properties: CollectionConfig = {
       ],
     },
   ],
-  // admin: {
-  //   components: {
-  //     views: {
-  //       Edit: CustomEditView,
-  //     },
-  //   },
-  // },
+  hooks: { afterChange: [] },
+  admin: {
+    components: {},
+  },
 };
-
-// const Agents: CollectionConfig = {
-//   slug: "agents",
-//   fields: [
-//     {
-//       name: "name",
-//       type: "text",
-//       required: true,
-//     },
-//     {
-//       name: "phone",
-//       type: "text",
-//       required: true,
-//     },
-//     {
-//       name: "email",
-//       type: "text",
-//       required: true,
-//     },
-//     {
-//       name: "properties",
-//       type: "array",
-//       fields: [
-//         {
-//           name: "property",
-//           type: "relationship",
-//           relationTo: "properties",
-//           required: true,
-//         },
-//       ],
-//     },
-//   ],
-// };
 
 export default Properties;
